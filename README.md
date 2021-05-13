@@ -1,6 +1,6 @@
 # 16S_Mice_Mothur
 Take JLT48 as an example
-## Set path for samples
+## Set path and extract samples 
 ```bash
 mkdir fastq
 cd fastq 
