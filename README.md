@@ -5,7 +5,7 @@ Take JLT48 as an example
 mkdir fastq
 cd fastq 
 cp ../../JLT48/*.gz .
-for x in $(ls *.gz); do gunzip $s;done
+for x in $(ls *.gz); do gunzip $x;done
 ```
 ## Extract samples
 ```bash
