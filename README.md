@@ -13,8 +13,13 @@ mkdir fastq
 cd fastq 
 cp ../
 ```
-## Combine sample
+## Create environment
 ```bash
 module python/py38-anaconda-2020.11
 conda create -c bioconda -m -p pyenvs/py35-snakemake python=3.5 pandas snakemake
+```
+## Load environment
+```
+module use /projects/academic/pidiazmo/projectmodules
+module load mothur/1.44.3
 ```
