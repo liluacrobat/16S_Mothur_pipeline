@@ -18,7 +18,7 @@ cp ../
 module python/py38-anaconda-2020.11
 conda create -c bioconda -m -p pyenvs/py35-snakemake python=3.5 pandas snakemake
 ```
-## Step 1: Make contig and align sequence
+## Step 1: Make contig and align sequences
 ```
 module use /projects/academic/pidiazmo/projectmodules
 module load mothur/1.44.3
