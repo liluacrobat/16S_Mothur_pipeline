@@ -8,12 +8,6 @@ cd fastq
 cp dir2plate/*.gz .
 for x in $(ls *.gz); do gunzip $x;done
 ```
-## Extract samples
-```bash
-mkdir fastq
-cd fastq 
-cp ../
-```
 ## Create environment
 Build the environment of Mothur
 ```
