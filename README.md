@@ -14,9 +14,17 @@ cd fastq
 cp ../
 ```
 ## Create environment
-```bash
-module python/py38-anaconda-2020.11
-conda create -c bioconda -m -p pyenvs/py35-snakemake python=3.5 pandas snakemake
+Build the environment of Mothur
+```
+conda create -c bioconda -m -p /projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3 python=2.7.5 pandas
+conda install -c bioconda mothur=1.44.3
+```
+Once the environment is built, we can directly load it without building the environment every time.
+For the ease of using, a module file (mothur/1.44.3.lua)is created:
+```
+whatis([[ Mothur v1.44.3 ]])
+prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3",delim=":",priority="0"}
+prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3/blast/bin/",delim=":",priority="0"}
 ```
 ## Load environment
 ```
