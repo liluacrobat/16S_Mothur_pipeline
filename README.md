@@ -13,12 +13,12 @@ whatis([[ Mothur v1.44.3 ]])
 prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3",delim=":",priority="0"}
 prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3/blast/bin/",delim=":",priority="0"}
 ```
+## Specific steps
 ### Load environment
 ```
 module use /projects/academic/pidiazmo/projectmodules
 module load mothur/1.44.3
 ```
-## Specific steps
 ### Set path and extract samples 
 Replace "dir2plate" with the absolute path to the folder of sequences.
 ```bash
