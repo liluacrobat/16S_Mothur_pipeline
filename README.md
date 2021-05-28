@@ -1,12 +1,4 @@
 # Mothur pipeline of clustering 16S rRNA sequences into OTUs
-## Set path and extract samples 
-Replace "dir2plate" with the absolute path to the folder of sequences.
-```bash
-mkdir fastq
-cd fastq 
-cp dir2plate/*.gz .
-for x in $(ls *.gz); do gunzip $x;done
-```
 ## Create environment
 Build the environment of Mothur
 ```
@@ -24,6 +16,14 @@ prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3
 ```
 module use /projects/academic/pidiazmo/projectmodules
 module load mothur/1.44.3
+```
+## Set path and extract samples 
+Replace "dir2plate" with the absolute path to the folder of sequences.
+```bash
+mkdir fastq
+cd fastq 
+cp dir2plate/*.gz .
+for x in $(ls *.gz); do gunzip $x;done
 ```
 ## Make files
 Create the input files for make.contigs. Takes a input directory and creates a file containing the fastq or gz files in the directory.
