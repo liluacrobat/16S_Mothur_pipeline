@@ -138,7 +138,9 @@ Need to count the sequences in the file obtained after chimaera removal, to see 
 mothur "#count.groups(count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table)"
 ```
 ### Step 14: classify.seqs
-Set path to the reference database
+Set path to the reference database.
+
+Greengene
 ```
 REF_FA=Greengene/13.8/gg_13_8_99.fasta
 REF_TAX=Greengene/13.8/gg_13_8_99.gg.tax
