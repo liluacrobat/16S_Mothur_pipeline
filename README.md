@@ -1,5 +1,4 @@
 # Mothur pipeline of clustering 16S rRNA sequences into OTUs
-Take plate JLT48 as an example.
 ## Set path and extract samples 
 Replace "dir2plate" with the absolute path to the folder of sequences.
 ```bash
