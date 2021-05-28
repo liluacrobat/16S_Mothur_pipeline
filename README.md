@@ -138,12 +138,17 @@ Need to count the sequences in the file obtained after chimaera removal, to see 
 mothur "#count.groups(count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table)"
 ```
 ### Step 14: classify.seqs
-Set path to the reference database.
+Set path to the reference database. Please use the latest version of the dataset.
 
-Greengene
+**Greengene**
 ```
 REF_FA=/projects/academic/pidiazmo/16S_Database/Greengene/13.8/gg_13_8_99.fasta
 REF_TAX=/projects/academic/pidiazmo/16S_Database/Greengene/13.8/gg_13_8_99.gg.tax
+```
+**HOMD**
+```
+REF_FA=/projects/academic/pidiazmo/16S_Database/HOMD/eHOMD15.2/HOMD_16S_rRNA_RefSeq_V15.22.fasta
+REF_TAX=/projects/academic/pidiazmo/16S_Database/HOMD/eHOMD15.2/HOMD_16S_rRNA_RefSeq_V15.22.mothur.taxonomy
 ```
 Choose one way to assign taxonomy to the sequences: RDP or nearest neighbor (NN).
 
