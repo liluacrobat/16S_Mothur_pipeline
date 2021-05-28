@@ -82,13 +82,13 @@ The **screen.seqs** command enables you to keep sequences that fulfill certain u
 
 **start & end**
 
-You may have noticed that when you make an alignment there are some sequences that do not align in the same region as most of the sequences that you are analyzing. Here we cull the sequences aligned to v3-v4 region.
+You may have noticed that when you make an alignment there are some sequences that do not align in the same region as most of the sequences that you are analyzing. The start and end need to be determined based on the sequence summary generated in Step 6. 
 
 **maxhomop**
 
 While we don't necessarily know the longest acceptable homopolymer for a 16S rRNA gene, the max length of 31, for example, is clearly a sequencing artifact. If you are interested in removing sequences with excessively long homopolymers, then you should use the maxhomop option.
 ```
-mothur "#screen.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, summary=plate_16S.trim.contigs.good.unique.summary, start=6388, end=25316, maxhomop=10, processors=8)"
+mothur "#screen.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, summary=plate_16S.trim.contigs.good.unique.summary, start=6388, end=22575, maxhomop=10, processors=8)"
 mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.good.align count=plate_16S.trim.contigs.good.good.count_table, processors=8)">align_filtered_summary.txt
 ```
 ### Step 8: filter.seqs
