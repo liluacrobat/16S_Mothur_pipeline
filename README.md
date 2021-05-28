@@ -81,21 +81,25 @@ mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plat
 The **screen.seqs** command enables you to keep sequences that fulfill certain user defined criteria. Furthermore, it enables you to cull those sequences not meeting the criteria from a names, group, contigsreport, alignreport and summary file.
 
 **start & end**
+
 You may have noticed that when you make an alignment there are some sequences that do not align in the same region as most of the sequences that you are analyzing. Here we cull the sequences aligned to v3-v4 region.
 
 **maxhomop**
-While we don't necessarily know the longest acceptable homopolymer for a 16S rRNA gene, the max length of 31 is clearly a sequencing artifact. If you are interested in removing sequences with excessively long homopolymers, then you should use the maxhomop option.
+
+While we don't necessarily know the longest acceptable homopolymer for a 16S rRNA gene, the max length of 31, for example, is clearly a sequencing artifact. If you are interested in removing sequences with excessively long homopolymers, then you should use the maxhomop option.
 ```
-mothur "#screen.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, summary=plate_16S.trim.contigs.good.unique.summary, start=6388, end=25316, maxhomop=8, processors=8)"
+mothur "#screen.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, summary=plate_16S.trim.contigs.good.unique.summary, start=6388, end=25316, maxhomop=10, processors=8)"
 mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.good.align count=plate_16S.trim.contigs.good.good.count_table, processors=8)">align_filtered_summary.txt
 ```
 ### Step 8: filter.seqs
 Next, we need to filter our alignment so that all of our sequences only overlap in the same region and to remove any columns in the alignment that don't contain data. We do this by running the filter.seqs command. **filter.seqs** removes columns from alignments based on a criteria defined by the user. For example, alignments generated against reference alignments (e.g. from RDP, SILVA, or greengenes) often have columns where every character is either a '.' or a '-'. These columns are not included in calculating distances because they have no information in them. By removing these columns, the calculation of a large number of distances is accelerated. Also, people also like to mask their sequences to remove variable regions using a soft or hard mask (e.g. Lane's mask). This type of masking is only encouraged for deep-level phylogenetic analysis, not fine level analysis such as that needed with calculating OTUs.
 
 **vertical**
+
 By default vertical option is set to T, and any column that only contains gap characters (i.e. '-' or '.') is ignored.
 
 **trump**
+
 The trump option will remove a column if the trump character is found at that position in any sequence of the alignment. You can use any character with the trump setting ('.', '-', 'N', etc). NOTE: having one or two sequences included that don't align with the bulk of your sequences may lead to all columns being removed by the trump option!
 
 In this command trump=. will remove any column that has a "." character, which indicates missing data. The vertical=T option will remove any column that contains exclusively gaps.
