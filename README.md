@@ -1,10 +1,11 @@
 # Mothur pipeline of clustering 16S rRNA sequences into OTUs
 Take plate JLT48 as an example.
 ## Set path and extract samples 
+Replace "dir2plate" with the absolute to the folder of sequences.
 ```bash
 mkdir fastq
 cd fastq 
-cp ../../JLT48/*.gz .
+cp dir2plate/*.gz .
 for x in $(ls *.gz); do gunzip $x;done
 ```
 ## Extract samples
