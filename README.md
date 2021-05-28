@@ -79,8 +79,10 @@ mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plat
 ```
 ### Step 7: screen.seqs
 The **screen.seqs** command enables you to keep sequences that fulfill certain user defined criteria. Furthermore, it enables you to cull those sequences not meeting the criteria from a names, group, contigsreport, alignreport and summary file.
+
 **start & end**
 You may have noticed that when you make an alignment there are some sequences that do not align in the same region as most of the sequences that you are analyzing. Here we cull the sequences aligned to v3-v4 region.
+
 **maxhomop**
 While we don't necessarily know the longest acceptable homopolymer for a 16S rRNA gene, the max length of 31 is clearly a sequencing artifact. If you are interested in removing sequences with excessively long homopolymers, then you should use the maxhomop option.
 ```
@@ -89,8 +91,10 @@ mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.good.align count=
 ```
 ### Step 8: filter.seqs
 Next, we need to filter our alignment so that all of our sequences only overlap in the same region and to remove any columns in the alignment that don't contain data. We do this by running the filter.seqs command. **filter.seqs** removes columns from alignments based on a criteria defined by the user. For example, alignments generated against reference alignments (e.g. from RDP, SILVA, or greengenes) often have columns where every character is either a '.' or a '-'. These columns are not included in calculating distances because they have no information in them. By removing these columns, the calculation of a large number of distances is accelerated. Also, people also like to mask their sequences to remove variable regions using a soft or hard mask (e.g. Lane's mask). This type of masking is only encouraged for deep-level phylogenetic analysis, not fine level analysis such as that needed with calculating OTUs.
+
 **vertical**
 By default vertical option is set to T, and any column that only contains gap characters (i.e. '-' or '.') is ignored.
+
 **trump**
 The trump option will remove a column if the trump character is found at that position in any sequence of the alignment. You can use any character with the trump setting ('.', '-', 'N', etc). NOTE: having one or two sequences included that don't align with the bulk of your sequences may lead to all columns being removed by the trump option!
 
@@ -112,6 +116,7 @@ mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.uniqu
 ```
 ### Step 11: chimera.uchime
 The **chimera.uchime** command reads a fasta file and reference file and outputs potentially chimeric sequences.
+
 **dereplicate**
 The dereplicate parameter can be used when checking for chimeras by group. If the dereplicate parameter is false, then if one group finds the sequence to be chimeric, then all groups find it to be chimeric, default=f. The default setting is a bit aggressive since we’ve seen rare sequences get flagged as chimeric when they’re the most abundant sequence in another sample. It is suggested to set dereplicate=t.
 ```
