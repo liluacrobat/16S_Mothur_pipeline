@@ -1,5 +1,5 @@
 # 16S_Mice_Mothur
-Take JLT48 as an example
+Take plate JLT48 as an example.
 ## Set path and extract samples 
 ```bash
 mkdir fastq
