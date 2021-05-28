@@ -147,8 +147,8 @@ mothur "#classify.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.uniq
 ## Step 15: OTU clustering
 Now we have a couple of options for clustering sequences into OTUs. For a dataset with a small number of unique sequences, we can do the traditional approach using **dist.seqs** and **cluster**:
 ```
-mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, cutoff=0.03)"
-mothur "#cluster(column=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.dist, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table)"
+mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, cutoff=0.03)"
+mothur "#cluster(column=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table)"
 ```
 The alternative is to use **cluster.split** command. In this approach, the taxonomic information is used to split the sequences into bins and then cluster within each bin.  Please replace "plate_16S.taxonomy" with the taxonomy file generated in Step 14.
 ** cluster**
