@@ -20,7 +20,7 @@ conda create -c bioconda -m -p /projects/academic/pidiazmo/projectsoftwares/moth
 conda install -c bioconda mothur=1.44.3
 ```
 Once the environment is built, we can directly load it without building the environment every time.
-For the ease of using, a module file (mothur/1.44.3.lua)is created:
+For the ease of using, a module file (mothur/1.44.3.lua) is created:
 ```
 whatis([[ Mothur v1.44.3 ]])
 prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3",delim=":",priority="0"}
