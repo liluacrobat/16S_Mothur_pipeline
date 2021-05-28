@@ -142,8 +142,8 @@ Set path to the reference database.
 
 Greengene
 ```
-REF_FA=Greengene/13.8/gg_13_8_99.fasta
-REF_TAX=Greengene/13.8/gg_13_8_99.gg.tax
+REF_FA=/projects/academic/pidiazmo/16S_Database/Greengene/13.8/gg_13_8_99.fasta
+REF_TAX=/projects/academic/pidiazmo/16S_Database/Greengene/13.8/gg_13_8_99.gg.tax
 ```
 Choose one way to assign taxonomy to the sequences: RDP or nearest neighbor (NN).
 
