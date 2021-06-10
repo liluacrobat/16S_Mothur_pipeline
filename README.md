@@ -179,7 +179,6 @@ mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.p
 mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist)"
 ```
 
-### Step 16: make.shared
-
+### Step 17: make_shared
 
 
