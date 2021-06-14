@@ -173,12 +173,15 @@ The cluster parameter allows you to indicate whether you want to run the cluster
 mothur "#cluster.split(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, taxonomy=plate_16S.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.03,cluster=f, processors=8)
 mothur "#cluster.split(file=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.file, processors=4)"
 ```
-### Step 16: Phylogenetic
+### Step 16: calculate phylogenetic distance
 ```
 mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, output=lt, processors=12)"
 mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist)"
 ```
 
 ### Step 17: make_shared
+```
+
+```
 
 
