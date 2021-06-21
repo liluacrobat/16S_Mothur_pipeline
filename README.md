@@ -164,14 +164,14 @@ mothur "#classify.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.uniq
 Now we have a couple of options for clustering sequences into OTUs. For a dataset with a small number of unique sequences, we can do the traditional approach using **dist.seqs** and **cluster**:
 ```
 mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, cutoff=0.03)"
-mothur "#cluster(column=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table)"
+mothur "#cluster(column=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table,method=dgc)"
 ```
 The alternative is to use **cluster.split** command. In this approach, the taxonomic information is used to split the sequences into bins and then cluster within each bin.  Please replace "plate_16S.taxonomy" with the taxonomy file generated in Step 14.
 ** cluster**
 The cluster parameter allows you to indicate whether you want to run the clustering or just split the distance matrix, default=T. The cluster=f option is used with the file option. This can be helpful when you have a large dataset that you may be able to use all your processors for the splitting step, but have to reduce them for the cluster step due to RAM constraints. 
 ```
-mothur "#cluster.split(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, taxonomy=plate_16S.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.03,cluster=f, processors=8)
-mothur "#cluster.split(file=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.file, processors=4)"
+mothur "#cluster.split(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, taxonomy=plate_16S.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.03,cluster=f)
+mothur "#cluster.split(file=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.file,processors=1)"
 ```
 ### Step 16: calculate phylogenetic tree
 Calculate the representative sequence for each OTU and build phylogenetic tree
@@ -183,6 +183,8 @@ mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.p
 ### Step 17: make_shared
 ```
 mothur "#make.shared(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, label=0.03)"
+mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, taxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy, label=0.03) #Taxonomy name depends on the database used
+mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.shared, constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.cons.taxonomy)
 ```
 Summarize the table into different levels using QIIME
 ```
@@ -192,6 +194,7 @@ module load R/3.1.2
 module load qiime/1.9.0
 source activate /util/academic/qiime/1.9.0.dev
 
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.biom Mothur_16S_table.biom
 summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
 summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
 ```
