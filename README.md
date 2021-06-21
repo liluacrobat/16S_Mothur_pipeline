@@ -192,7 +192,7 @@ mothur "#cluster.split(file=plate_16S.trim.contigs.good.unique.good.filter.uniqu
 ### Step 16: calculate phylogenetic tree
 Calculate the representative sequence for each OTU and build phylogenetic tree
 ```
-mothur "#get.oturep(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.phylip.dist, list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, cutoff=0.03,large=t, method=distance)"
+mothur "#get.oturep(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.phylip.dist, list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, cutoff=0.03,large=t, method=abundance)"
 mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, output=lt, processors=12)"
 mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist)"
 ```
