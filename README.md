@@ -173,15 +173,27 @@ The cluster parameter allows you to indicate whether you want to run the cluster
 mothur "#cluster.split(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, taxonomy=plate_16S.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.03,cluster=f, processors=8)
 mothur "#cluster.split(file=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.file, processors=4)"
 ```
-### Step 16: calculate phylogenetic distance
+### Step 16: calculate phylogenetic tree
+Calculate the representative sequence for each OTU and build phylogenetic tree
 ```
+mothur "#get.oturep(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.phylip.dist, list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, cutoff=0.03,large=t, method=distance)"
 mothur "#dist.seqs(fasta=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta, output=lt, processors=12)"
 mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dist)"
 ```
-
 ### Step 17: make_shared
 ```
+mothur "#make.shared(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, label=0.03)"
+```
+Summarize the table into different levels using QIIME
+```
+#!/bin/sh
+module load python/anaconda
+module load R/3.1.2
+module load qiime/1.9.0
+source activate /util/academic/qiime/1.9.0.dev
 
+summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
+summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
 ```
 
 
