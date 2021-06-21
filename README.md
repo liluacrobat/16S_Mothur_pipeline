@@ -14,6 +14,22 @@ prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3
 prepend_path{"PATH","/projects/academic/pidiazmo/projectsoftwares/mothur/v1.44.3/blast/bin/",delim=":",priority="0"}
 ```
 ## Specific steps
+### Run in CCR
+Use sbatch XXXX.sh to submit the job
+The head of the shell file could be:
+```
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=71:00:00
+#SBATCH --nodes=1
+#SBATCH --mem=60000
+#SBATCH --ntasks-per-node=12
+#SBATCH --job-name="Mothur-pipeline"
+#SBATCH --mail-user=username@buffalo.edu
+#SBATCH --output=Mothur-pipeline.log
+#SBATCH --mail-type=END
+```
+More details: https://ubccr.freshdesk.com/support/solutions/articles/13000076253-requesting-specific-hardware-in-batch-jobs.
 ### Load environment
 ```
 module use /projects/academic/pidiazmo/projectmodules
@@ -198,5 +214,7 @@ cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.0
 summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
 summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
 ```
+
+
 
 
