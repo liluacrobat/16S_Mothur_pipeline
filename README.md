@@ -90,7 +90,7 @@ mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.fasta, count=plat
 ### Step 6: align.seqs
 The **align.seqs** command aligns a user-supplied fasta-formatted candidate sequence file to a user-supplied fasta-formatted template alignment. The general approach is to i) find the closest template for each candidate using kmer searching, blastn, or suffix tree searching; ii) to make a pairwise alignment between the candidate and de-gapped template sequences using the Needleman-Wunsch, Gotoh, or blastn algorithms; and iii) to re-insert gaps to the candidate and template pairwise alignments using the NAST algorithm so that the candidate sequence alignment is compatible with the original template alignment. Make sure to download the latest version of these reference files (https://mothur.org/wiki/Silva_reference_files). The mothur developers have noticed some weird results using Silva v138/v138.1 of the SEED alignment relative to previous versions of the alignment. This is most likely because it is smaller than previous versions. Here we are sticking with the v132 version of the SEED database for alignments.
 ```
-mothur "#align.seqs(fasta=plate_16S.trim.contigs.good.unique.fasta, reference=../silva.seed_v132/silva.seed_v132.align, processors=8)"
+mothur "#align.seqs(fasta=plate_16S.trim.contigs.good.unique.fasta, reference=/projects/academic/pidiazmo/16S_Database/Silva/silva_v132/silva.seed_v132.align, processors=8)"
 mothur "#summary.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, processors=8)">align_summary.txt
 ```
 ### Step 7: screen.seqs
