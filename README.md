@@ -199,8 +199,8 @@ mothur "#clearcut(phylip=plate_16S.trim.contigs.good.unique.good.filter.unique.p
 ### Step 17: make_shared
 ```
 mothur "#make.shared(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, label=0.03)"
-mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, taxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy, label=0.03) #Taxonomy name depends on the database used
-mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.shared, constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.cons.taxonomy)
+mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, taxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy, label=0.03)" #Taxonomy name depends on the database used
+mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.shared, constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.cons.taxonomy)"
 ```
 Summarize the table into different levels using QIIME
 ```
