@@ -1,4 +1,7 @@
 # Mothur pipeline of clustering 16S rRNA sequences into OTUs
+```
+for x in (ls *.fastq);do /projects/academic/pidiazmo/projectsoftwares/fastx/bin/fastx_trimmer -f 15 -i $x -o trim15/$x 
+```
 ## Preparation
 ### Create environment
 Build the environment of Mothur
