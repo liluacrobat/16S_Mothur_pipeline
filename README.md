@@ -237,7 +237,7 @@ cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.0
 mkdir core_files/logs
 cp *.log core_files/logs/
 cp *.txt core_files/logs/
-
+cp *.logfile core_files/logs/
 cp otu_table core_files/otu_table -r
 ```
 
