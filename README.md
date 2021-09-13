@@ -238,6 +238,7 @@ mkdir core_files/logs
 cp *.log core_files/logs/
 cp *.txt core_files/logs/
 cp *.logfile core_files/logs/
+cp *.sh core_files/logs/
 cp otu_table core_files/otu_table -r
 ```
 
