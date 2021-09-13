@@ -205,19 +205,40 @@ mothur "#make.shared(list=plate_16S.trim.contigs.good.unique.good.filter.unique.
 mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, taxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy, label=0.03)" #Taxonomy name depends on the database used
 mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.shared, constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.cons.taxonomy)"
 ```
-Summarize the table into different levels using QIIME
+### Step 18: summarize the table into different levels using QIIME
 ```
-#!/bin/sh
-module load python/anaconda
+mkdir otu_table
+cd otu_table
+cp ../plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.biom .
+module load qiime2
+biom convert -i plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.biom -o plate_16S.OTU.txt --to-tsv --table-type "OTU table" --header-key taxonomy
+
+sed -i '1d' plate_16S.OTU.txt
+
 module load R/3.1.2
-module load qiime/1.9.0
-source activate /util/academic/qiime/1.9.0.dev
+module load qiime/1.9.1
 
-cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.biom Mothur_16S_table.biom
-summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
-summarize_taxa.py -i Mothur_16S_table.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
+biom convert -i plate_16S.OTU.txt -o plate_16S.OTU.biom --to-json --table-type "OTU table" --process-obs-metadata taxonomy
+
+summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
+summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
+cd ..
 ```
+### Step 19: collect the key files for record
+```
+mkdir core_files
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.list core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.shared core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.taxonomy core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.biom core_files/
 
+mkdir core_files/logs
+cp *.log core_files/logs/
+cp *.txt core_files/logs/
 
+cp otu_table core_files/otu_table -r
+```
 
 
