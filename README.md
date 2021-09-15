@@ -233,6 +233,7 @@ cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.
 cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.shared core_files/
 cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.taxonomy core_files/
 cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.biom core_files/
+cp plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta core_files/
 
 mkdir core_files/logs
 cp *.log core_files/logs/
