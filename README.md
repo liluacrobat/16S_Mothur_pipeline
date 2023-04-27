@@ -23,14 +23,15 @@ The head of the shell file could be:
 ```
 #!/bin/sh
 #SBATCH --partition=general-compute
+#SBATCH --qos=general-compute
 #SBATCH --time=71:00:00
 #SBATCH --nodes=1
-#SBATCH --mem=60000
+#SBATCH --mem=30000
 #SBATCH --ntasks-per-node=12
 #SBATCH --job-name="Mothur-pipeline"
-#SBATCH --mail-user=username@buffalo.edu
+#SBATCH --mail-user=lli59@buffalo.edu
 #SBATCH --output=Mothur-pipeline.log
-#SBATCH --mail-type=END
+#SBATCH --mail-type=ALL
 ```
 More details: https://ubccr.freshdesk.com/support/solutions/articles/13000076253-requesting-specific-hardware-in-batch-jobs.
 ### Load environment
