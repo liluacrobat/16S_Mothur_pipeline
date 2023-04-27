@@ -170,6 +170,11 @@ REF_TAX=/projects/academic/pidiazmo/16S_Database/Greengene/13.8/gg_13_8_99.gg.ta
 REF_FA=/projects/academic/pidiazmo/16S_Database/HOMD/eHOMD15.2/HOMD_16S_rRNA_RefSeq_V15.22.fasta
 REF_TAX=/projects/academic/pidiazmo/16S_Database/HOMD/eHOMD15.2/HOMD_16S_rRNA_RefSeq_V15.22.mothur.taxonomy
 ```
+**HOMD combined with GTDB**
+```
+REF_FA=/projects/academic/pidiazmo/16S_Database/HOMD_GTDB_Combined/GTDB_v202_HOMD_15_22_combined.fa
+REF_TAX=/projects/academic/pidiazmo/16S_Database/HOMD_GTDB_Combined/GTDB_v202_HOMD_15_22_combined_02_17_2023.tax
+```
 Choose one way to assign taxonomy to the sequences: RDP or nearest neighbor (NN).
 
 Classify sequences using RDP classifier:
