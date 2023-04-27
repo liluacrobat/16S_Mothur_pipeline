@@ -205,7 +205,7 @@ mothur "#make.shared(list=plate_16S.trim.contigs.good.unique.good.filter.unique.
 mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.list, count=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table, taxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.gg.knn.taxonomy, label=0.03)" #Taxonomy name depends on the database used
 mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.shared, constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.dgc.0.03.cons.taxonomy)"
 ```
-### Step 18: summarize the table into different levels using QIIME
+### Step 18: create OTU table in BIOM format
 ```
 mkdir otu_table
 cd otu_table
@@ -215,13 +215,6 @@ biom convert -i plate_16S.trim.contigs.good.unique.good.filter.unique.precluster
 
 sed -i '1d' plate_16S.OTU.txt
 
-module load R/3.1.2
-module load qiime/1.9.1
-
-biom convert -i plate_16S.OTU.txt -o plate_16S.OTU.biom --to-json --table-type "OTU table" --process-obs-metadata taxonomy
-
-summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
-summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
 cd ..
 ```
 ### Step 19: collect the key files for record
@@ -242,5 +235,14 @@ cp *.logfile core_files/logs/
 cp *.sh core_files/logs/
 cp otu_table core_files/otu_table -r
 ```
+### Step 20: summarize the table into different levels using Matlab and QIIME
+In matlab run main_reorganize_tax.m to reformate the taxonomy name, then use QIIME to summarize the table into different levels
+```
+module load R/3.1.2
+module load qiime/1.9.1
 
+biom convert -i plate_16S.OTU.txt -o plate_16S.OTU.biom --to-json --table-type "OTU table" --process-obs-metadata taxonomy
 
+summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_counts/ -L 2,3,4,5,6,7 -a
+summarize_taxa.py -i plate_16S.OTU.biom -o tax_mapping_rel/ -L 2,3,4,5,6,7
+```
