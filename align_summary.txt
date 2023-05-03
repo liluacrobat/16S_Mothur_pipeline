@@ -1,0 +1,56 @@
+[H[JLinux version
+
+Using ReadLine,Boost,HDF5
+mothur v.1.44.3
+Last updated: 8/27/20
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+
+University of Michigan
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+For questions and analysis support, please visit our forum at https://forum.mothur.org
+
+Type 'quit()' to exit program
+
+[NOTE]: Setting random seed to 19760620.
+
+Script Mode
+
+
+mothur > summary.seqs(fasta=plate_16S.trim.contigs.good.unique.align, count=plate_16S.trim.contigs.good.count_table, processors=32)
+
+Using 32 processors.
+
+		Start	End	NBases	Ambigs	Polymer	NumSeqs
+Minimum:	1046	1053	2	0	1	1
+2.5%-tile:	1046	1067	4	0	1	3
+25%-tile:	1162	16421	375	0	4	30
+Median: 	10358	26988	375	0	7	60
+75%-tile:	10360	26994	477	0	8	89
+97.5%-tile:	43105	43116	598	0	13	116
+Maximum:	43115	43116	598	0	15	118
+Mean:	10193	24122	372	0	6
+# of unique seqs:	118
+total # of seqs:	118
+
+It took 0 secs to summarize 118 sequences.
+
+Output File Names:
+plate_16S.trim.contigs.good.unique.summary
+
+
+mothur > quit()
+
+
+It took 0 seconds to run 2 commands from your script.
+
