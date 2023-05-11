@@ -1,13 +1,13 @@
 function main_reorganize_tax
 clc;clear;close all
-tbl = readtable('plate_16S.OTU.txt','delimiter','\t','ReadVariableNames',1);
+tbl = readtable('plate_16S.OTU.raw.txt','delimiter','\t','ReadVariableNames',1);
 raw = tbl.taxonomy;
 L = zeros(size(raw));
 Re = cell(size(raw));
 ReOTU = cell(size(raw));
 OTU = tbl.x_OTUID;
-fid = fopen('reformated_tax.txt','w');
-for i=1:length(raw)
+fid = fopen('reformated_tax2.txt','w');
+for i=342:length(raw)
     tmp = raw{i};
     s = strsplit(tmp,';');
     pp = '';
@@ -15,7 +15,7 @@ for i=1:length(raw)
     for k=1:length(s)
         [~,tax,flag] = rmHead(s{k});
         if flag==0
-            if isempty(tax)
+            if isempty(strrep(tax,'_unclassified',''))
                 if ~contains(pp,'_unclassified')
                     ps=strcat(pp,'_unclassified');
                 else
@@ -23,9 +23,11 @@ for i=1:length(raw)
                 end
                 s{k} = ps;
             else
-                pp = s{k};
+                 pp = s{k};
             end
+           
         end
+        disp(s{k});
     end
     ks = fun_recombine(s);
     Re{i,1} = ks;
