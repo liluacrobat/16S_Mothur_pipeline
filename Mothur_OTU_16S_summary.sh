@@ -1,5 +1,5 @@
 #!/bin/sh
-
+module load qiime2
 
 biom convert -i plate_16S.OTU.org.txt -o plate_16S.OTU.biom --to-json --table-type "OTU table" --process-obs-metadata taxonomy
 
