@@ -1,6 +1,6 @@
 function main_reorganize_tax
 clc;clear;close all
-tbl = readtable('plate_16S.OTU.raw.txt','delimiter','\t','ReadVariableNames',1);
+tbl = readtable('plate_16S.OTU.txt','delimiter','\t','ReadVariableNames',1);
 raw = tbl.taxonomy;
 L = zeros(size(raw));
 Re = cell(size(raw));
