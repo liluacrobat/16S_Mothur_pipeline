@@ -6,7 +6,7 @@ L = zeros(size(raw));
 Re = cell(size(raw));
 ReOTU = cell(size(raw));
 OTU = tbl.x_OTUID;
-fid = fopen('reformated_tax2.txt','w');
+fid = fopen('reformated_tax.txt','w');
 for i=1:length(raw)
     tmp = raw{i};
     s = strsplit(tmp,';');
@@ -27,7 +27,7 @@ for i=1:length(raw)
             end
            
         end
-        disp(s{k});
+        %         disp(s{k});
     end
     ks = fun_recombine(s);
     Re{i,1} = ks;
