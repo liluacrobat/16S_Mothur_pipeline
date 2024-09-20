@@ -93,7 +93,7 @@ $MOTHURPATH/mothur "#classify.otu(list=plate_16S.trim.contigs.good.unique.good.f
 #plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.taxonomy
 #plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.tax.summary
 
-$MOTHURPATH/mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.shared,constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.taxonomy)"
+$MOTHURPATH/mothur "#make.biom(shared=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.shared,constaxonomy=plate_16S.trim.contigs.good.unique.good.filter.unique.precluster.pick.agc.0.03.cons.taxonomy,output=simple)"
 
 mkdir otu_table
 
